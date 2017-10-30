@@ -18,18 +18,18 @@ import sv.edu.uesocc.ingenieria.prn335_2017.datos.definiciones.Categoria;
 
 /**
  *
- * @author bryan
+ * @author juancarlos
  */
 @Named(value = "frmCategoria")
 @ViewScoped
-public class frmCategoria extends GenericMB<Categoria> implements Serializable{
+public class frmRol extends GenericMB<Categoria> implements Serializable{
 
-    public frmCategoria() {
+    public frmRol() {
     }
 
     @EJB
-    CategoriaFacadeLocal facade;
-    Categoria categoriaEntity;
+    RolFacadeLocal facade;
+    Rol RolEntity;
     boolean btnVisible=false;
     
     boolean btnadd = false;
@@ -38,7 +38,7 @@ public class frmCategoria extends GenericMB<Categoria> implements Serializable{
     
 
     // <editor-fold defaultstate="collapsed" desc="Getters y Setters">
-    public CategoriaFacadeLocal getFacade() {
+    public RolFacadeLocal getFacade() {
         return facade;
     }
 
@@ -50,19 +50,19 @@ public class frmCategoria extends GenericMB<Categoria> implements Serializable{
         this.btnVisible = btnVisible;
     }
     
-    public void setFacade(CategoriaFacadeLocal facade) {
+    public void setFacade(RolFacadeLocal facade) {
         this.facade = facade;
     }
 
-    public Categoria getCategoriaEntity() {
-        return categoriaEntity;
+    public Rol getRolEntity() {
+        return RolEntity;
     }
 
-    public void setCategoriaEntity(Categoria categoriaEntity) {
-        this.categoriaEntity = categoriaEntity;
+    public void setRolEntity(Rol RolEntity) {
+        this.RolEntity = RolEntity;
     }
 
-    public List<Categoria> getListaDatos() {
+    public List<Rol> getListaDatos() {
         return listaDatos;
     }
 
@@ -99,12 +99,12 @@ public class frmCategoria extends GenericMB<Categoria> implements Serializable{
     
     // <editor-fold defaultstate="collapsed" desc="Overrrides">
     @Override
-    public Categoria getEntity() {
-        return categoriaEntity;
+    public Rol getEntity() {
+        return RolEntity;
     }
 
     @Override
-    protected AbstractInterface<Categoria> getFacadeLocal() {
+    protected AbstractInterface<Rol> getFacadeLocal() {
         return facade;
     }
 
@@ -144,24 +144,24 @@ public class frmCategoria extends GenericMB<Categoria> implements Serializable{
     }
     
     public void btnCancelar() {
-        categoriaEntity = new Categoria();
+        RolEntity = new Rol();
         this.botones=false;
         this.btnadd=false;
         this.botones2=false;
     }
     
     public void nuevo(){
-    categoriaEntity = new Categoria();
+    RolEntity = new Rol();
     this.botones = true;
     this.btnadd = true;
     this.botones2=false;
     }
     
     public void reiniciarValores(){
-        categoriaEntity.setActivo(false);
-        categoriaEntity.setDescripcion(null);
-        categoriaEntity.setIdCategoria(null);
-        categoriaEntity.setNombre(null);
+        RolEntity.setActivo(false);
+        RolEntity.setDescripcion(null);
+        RolEntity.setIdCategoria(null);
+        RolEntity.setNombre(null);
     }
     
     public void cambiarSeleccion() {
